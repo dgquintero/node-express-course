@@ -23,7 +23,7 @@ app.get('/users/:id',function(req,res){
     })
 })
 
-app.post(/login,function(req,res){
+app.post('/login',function(req,res){
     // Typically passwords are encrypted using something like bcrypt before sending to database
     const username=req.body.username;
     const password=req.body.password;
@@ -45,6 +45,16 @@ app.post(/login,function(req,res){
             message: 'password and username do not match'
         })
     }
+})
+
+// trying a difgerent end point
+app.get('/Daniel',function(req,res){
+    console.log(req.params.id)
+    res.json({
+        success: true,
+        message: 'user Daniel',
+        user: req.params.id
+    })
 })
 
 app.listen(8000,function(){
